@@ -32,11 +32,29 @@ app.get('/api/persons',(request,response)=> {
 
 app.get('/info',(request,response)=>{
     const no = persons.map(x =>x.id)
-    const len = no.length;
-    console.log(len.toString())
+    const len = no.length
+    console.log(len)
+    response.send(`Phone book has info for ${len} people` )
 })
 
+app.get('/api/persons/:id',function(req,res){
+  const id =Number(req.params.id)
+  const person = persons.find(x=>x.id === id)
+  if(person){
+    res.json(person)
+  }
+  else {
+    res.status(404).end()
+  }
+})
 
+app.delete('/api/persons/:id',(req,res)=>{
+  const id = Number(req.params.id)
+  const person =persons.filter(x=> x.id !== id)
+  console.log(person)
+  res.status(204).end()
+  
+})
 const PORT = "3001"
 app.listen(PORT)
-console.log('Server is listening on port ${PORT}')
+console.log<(`Server is listening on port ${PORT}`)
