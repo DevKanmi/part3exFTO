@@ -51,8 +51,11 @@ app.get('/api/persons/:id',function(req,res){
 app.delete('/api/persons/:id',(req,res)=>{
   const id = Number(req.params.id)
   const person =persons.filter(x=> x.id !== id)
-  console.log(person)
   res.status(204).end()
+  
+})
+
+app.post('/api/persons',(req,res)=>{
   
 })
 const PORT = "3001"
