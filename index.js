@@ -1,3 +1,4 @@
+
 const express = require("express")
 const app = express()
 
@@ -34,7 +35,8 @@ app.get('/info',(request,response)=>{
     const no = persons.map(x =>x.id)
     const len = no.length
     console.log(len)
-    response.send(`Phone book has info for ${len} people` )
+    const time = new Date()
+    response.send(`Phone book has info for ${len} people <br> <br> ${time}` )
 })
 
 app.get('/api/persons/:id',function(req,res){
@@ -55,9 +57,9 @@ app.delete('/api/persons/:id',(req,res)=>{
   
 })
 
-app.post('/api/persons',(req,res)=>{
+// app.post('/api/persons',(req,res)=>{
   
-})
+// })
 const PORT = "3001"
 app.listen(PORT)
 console.log<(`Server is listening on port ${PORT}`)
