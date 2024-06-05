@@ -1,7 +1,7 @@
 
 const express = require("express")
 const app = express()
-
+app.use(express.json())
 let persons =
     [
         { 
@@ -57,9 +57,29 @@ app.delete('/api/persons/:id',(req,res)=>{
   
 })
 
-// app.post('/api/persons',(req,res)=>{
-  
-// })
+function generateid(){
+  const maxid = persons.length > 0 ? Math.random(...persons.map(x=>x.id))
+                                    : 0
+  return maxid + 1
+}
+
+app.post('/api/persons',(req,res)=>{
+  const personbody= req.body
+
+  if(!personbody.content){
+    return res.status(400).json({
+      error : 'content missing'
+    })
+  }
+
+  const person = {
+    content : personbody.content,
+    important : Boolean(personbody.important) || false,
+    id : generateid()
+  }
+  persons = persons.concat(person)
+  response.json(person)
+})
 const PORT = "3001"
 app.listen(PORT)
 console.log<(`Server is listening on port ${PORT}`)
