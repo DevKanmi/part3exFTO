@@ -56,7 +56,7 @@ app.delete('/api/persons/:id',(req,res)=>{
   res.status(204).end()
   
 })
-
+//Function used to generate a random id that would be assiged to nw notes posted to our server
 function generateid(){
   const maxid = persons.length > 0 ? Math.random(...persons.map(x=>x.id))
                                     : 0
