@@ -71,7 +71,7 @@ app.post('/api/persons',(req,res)=>{
       error : 'content missing'
     })
   }
-
+ //the person object is created here that we use to post to our server
   const person = {
     content : personbody.content,
     important : Boolean(personbody.important) || false,
