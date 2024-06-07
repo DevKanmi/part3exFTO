@@ -26,6 +26,9 @@ let persons =
         }
     ]
 
+    const requestLogger =(req,res,next) =>{
+      console
+    }
 app.get('/api/persons',(request,response)=> {
     response.json(persons);
 })
