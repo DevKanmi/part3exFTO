@@ -2,6 +2,8 @@
 const express = require("express")
 const app = express()
 app.use(express.json())
+app.use(express.morgan())
+
 let persons =
     [
         { 
@@ -26,13 +28,6 @@ let persons =
         }
     ]
 
-    const requestLogger =(req,res,next) =>{
-      console.log('Method:', req.method)
-      console.log('path: ', req.path)
-      console.log('Body:', req.body)
-      console.log('---')
-      next()
-    }
 app.get('/api/persons',(request,response)=> {
     response.json(persons);
 })
