@@ -25,6 +25,16 @@ let persons =
           "id": 4,
           "name": "Mary Poppendieck", 
           "number": "39-23-6423122"
+        },
+        {
+          "id": 5,
+          "name": "Mary Joe",
+          "number": "90-72-12-8620"
+        },
+        {
+          "id": 6,
+          "name": "Avator G",
+          "number": "900-902-8620"
         }
     ]
 
