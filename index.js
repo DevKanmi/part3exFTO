@@ -4,6 +4,8 @@ const app = express()
 app.use(express.json())
 app.use(express.morgan())
 
+const cors = require('cors')
+app.use(cors());
 let persons =
     [
         {
