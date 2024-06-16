@@ -32,13 +32,7 @@ let persons =
           "id": 5,
           "name": "Mary Joe",
           "number": "90-72-12-8620"
-        },
-        {
-          "id": 6,
-          "name": "Avator G",
-          "number": "900-902-8620"
         }
-    ]
 
 app.get('/api/persons',(request,response)=> {
     response.json(persons);
