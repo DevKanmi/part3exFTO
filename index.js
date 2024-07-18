@@ -1,5 +1,7 @@
 
 const express = require("express")
+const dotenv = require("dotenv")
+
 const app = express()
 app.use(express.json())
 app.use(express.morgan())
@@ -32,7 +34,7 @@ let persons =
           "id": 5,
           "name": "Mary Joe",
           "number": "90-72-12-8620"
-        }
+        } ]
 
 app.get('/api/persons',(request,response)=> {
     response.json(persons);
@@ -88,6 +90,6 @@ app.post('/api/persons',(req,res)=>{
   persons = persons.concat(person)
   response.json(person)
 })
-const PORT = "3001"
+const PORT = process.env.PORT
 app.listen(PORT)
 console.log<(`Server is listening on port ${PORT}`)
